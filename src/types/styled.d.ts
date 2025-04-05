@@ -33,6 +33,7 @@ declare module 'styled-components' {
         xlarge: string
         xxlarge: string
         xxxlarge: string
+        xxxxlarge: string
       }
     }
     colors: {

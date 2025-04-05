@@ -6,13 +6,13 @@ import { styled, css } from 'styled-components'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   leftIcon?: React.ReactNode
-  variant: 'primary' | 'secondary' | 'ghost'
+  variant: 'primary' | 'secondary' | 'ghost' | 'black'
   size: 'sm' | 'md' | 'lg' | 'xs-full' | 'md-full' | 'icon'
   children: React.ReactNode
 }
 
 const ButtonStyled = styled.button<{
-  $variant: 'primary' | 'secondary' | 'ghost'
+  $variant: 'primary' | 'secondary' | 'ghost' | 'black'
   $size: 'sm' | 'md' | 'lg' | 'xs-full' | 'md-full' | 'icon'
 }>`
   display: inline-flex;
@@ -22,11 +22,9 @@ const ButtonStyled = styled.button<{
   padding: 8px 20px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color ${({ theme }) => theme.transition.default};
   font-size: ${({ theme }) => theme.font.sizes.large};
-  font-weight: 500;
 
-  // Adicionado para centralizar os children
   & > * {
     display: flex;
     align-items: center;
@@ -37,10 +35,10 @@ const ButtonStyled = styled.button<{
     switch ($variant) {
       case 'primary':
         return css`
-          background-color: ${theme.colors.primary};
+          background-color: ${theme.colors.primary.main};
           color: ${theme.colors.white};
           border: none;
-          border-radius: 0;
+          border-radius: ${theme.border.radius.none};
 
           &:hover {
             background-color: ${theme.colors.primary.muted};
@@ -49,9 +47,9 @@ const ButtonStyled = styled.button<{
       case 'secondary':
         return css`
           background-color: ${theme.colors.white};
-          color: ${theme.colors.black};
+          color: ${theme.colors.black.main};
           border: 1px solid ${theme.colors.primary.border};
-          border-radius: 2px;
+          border-radius: ${theme.border.radius.small};
 
           &:hover {
             background-color: ${theme.colors.primary.muted};
@@ -60,12 +58,23 @@ const ButtonStyled = styled.button<{
       case 'ghost':
         return css`
           background-color: transparent;
-          color: ${theme.colors.black};
+          color: ${theme.colors.black.main};
           border: none;
-          border-radius: 0;
+          border-radius: ${theme.border.radius.none};
 
           &:hover {
             background-color: ${theme.colors.primary.muted};
+          }
+        `
+      case 'black':
+        return css`
+          background-color: ${theme.colors.black.main};
+          color: ${theme.colors.black.foreground};
+          border: none;
+          border-radius: ${theme.border.radius.none};
+
+          &:hover {
+            background-color: ${theme.colors.black.muted};
           }
         `
     }
