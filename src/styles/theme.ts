@@ -35,8 +35,10 @@ export default {
   colors: {
     primary: {
       main: '#792BF9',
+      neutral: '#F1F4FB',
       muted: 'rgba(121, 43, 249, 0.1)',
       foreground: '#ffffff',
+      border: '#D4D9EB',
     },
     secundary: {
       main: '#171717',
@@ -57,17 +59,6 @@ export default {
       foreground: '#ffffff',
     },
   },
-  spacings: {
-    xxxsmall: '0.8rem',
-    xxsmall: '1rem',
-    xsmall: '1.6rem',
-    small: '2.4rem',
-    medium: '3.2rem',
-    large: '4.0rem',
-    xlarge: '4.8rem',
-    xxlarge: '5.6rem',
-    xxxlarge: '6.4rem',
-  },
   layers: {
     base: 10,
     menu: 20,
@@ -78,5 +69,21 @@ export default {
   transition: {
     default: '0.3s ease-in-out',
     fast: '0.1s ease-in-out',
+  },
+  breakpoints: {
+    xs: '320px',
+    sm: '576px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    xxl: '1440px',
+  },
+  media: {
+    xs: '@media (min-width: 320px)',
+    sm: '@media (min-width: 576px)',
+    md: '@media (min-width: 768px)',
+    lg: '@media (min-width: 1024px)',
+    xl: '@media (min-width: 1280px)',
+    xxl: '@media (min-width: 1440px)',
   },
 } as const

@@ -40,6 +40,8 @@ declare module 'styled-components' {
         main: string
         muted: string
         foreground: string
+        neutral: string
+        border: string
       }
       secundary: {
         main: string
@@ -60,17 +62,6 @@ declare module 'styled-components' {
         foreground: string
       }
     }
-    spacings: {
-      xxxsmall: string
-      xxsmall: string
-      xsmall: string
-      small: string
-      medium: string
-      large: string
-      xlarge: string
-      xxlarge: string
-      xxxlarge: string
-    }
     layers: {
       base: number
       menu: number
@@ -81,6 +72,22 @@ declare module 'styled-components' {
     transition: {
       default: string
       fast: string
+    }
+    breakpoints: {
+      xs: string
+      sm: string
+      md: string
+      lg: string
+      xl: string
+      xxl: string
+    }
+    media: {
+      xs: string
+      sm: string
+      md: string
+      lg: string
+      xl: string
+      xxl: string
     }
   }
 }
