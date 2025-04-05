@@ -47,7 +47,7 @@ const HeroDesktopOverlay = styled.div`
     background: ${({ theme }) => theme.colors.primary.main};
     left: 0;
     clip-path: polygon(0 0, 100% 0, calc(100% - calc(50% - 30%)) 100%, 0 100%);
-    max-width: 60%;
+    max-width: 50%;
   }
 `
 
@@ -59,15 +59,16 @@ const HeroContent = styled.div`
   padding: 4rem 2rem;
   gap: 2rem;
 
+  max-width: ${({ theme }) => theme.grid.container};
+  width: 100%;
+  margin: 0 auto;
+
   ${({ theme }) => theme.media.lg} {
     padding: 2rem 6rem;
   }
 
   ${({ theme }) => theme.media.xxl} {
     padding-inline: 0;
-    max-width: ${({ theme }) => theme.grid.container};
-    width: 100%;
-    margin: 0 auto;
   }
 `
 

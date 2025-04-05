@@ -37,7 +37,7 @@ export default {
     primary: {
       main: '#792BF9',
       neutral: '#F1F4FB',
-      muted: 'rgba(121, 43, 249, 0.1)',
+      muted: 'rgba(79, 8, 194, 0.8)',
       foreground: '#ffffff',
       border: '#D4D9EB',
     },

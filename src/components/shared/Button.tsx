@@ -22,7 +22,7 @@ const ButtonStyled = styled.button<{
   padding: 8px 20px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color ${({ theme }) => theme.transition.default};
+  transition: background-color ${({ theme }) => theme.transition.fast};
   font-size: ${({ theme }) => theme.font.sizes.large};
 
   & > * {

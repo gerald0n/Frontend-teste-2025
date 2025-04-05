@@ -11,7 +11,7 @@ interface ReqOptions extends RequestInit {
 
 export async function customFetch<T>(path: string, reqOptions?: ReqOptions) {
   const baseUrl = env.NEXT_PUBLIC_BACKEND_API_URL
-  const url = new URL(`content/${path}`, baseUrl)
+  const url = new URL(`content${path}`, baseUrl)
 
   const options: RequestInit = {
     ...reqOptions,
