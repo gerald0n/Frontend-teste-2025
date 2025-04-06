@@ -27,6 +27,7 @@ export const FadeWrapper = styled.div<{ $isOpen: boolean }>`
   justify-content: center;
   align-items: center;
   animation: ${({ $isOpen }) => ($isOpen ? fadeIn : fadeOut)} 0.2s ease-out;
+  animation-fill-mode: forwards; /* Adicionado para evitar o flash */
   width: 100%;
 `
 

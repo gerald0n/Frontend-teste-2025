@@ -22,17 +22,17 @@ function buildQueryString(
 }
 
 const createQueryStringFromParamsUrl = (
-  searchParams: ReadonlyURLSearchParams, // Parâmetros atuais da URL
-  paramsObject: Record<string, string | undefined>, // Novos parâmetros a serem aplicados
+  searchParams: ReadonlyURLSearchParams,
+  paramsObject: Record<string, string | undefined>,
 ) => {
-  const params = new URLSearchParams(searchParams.toString()) // Cria uma cópia dos parâmetros atuais
+  const params = new URLSearchParams(searchParams.toString())
 
   Object.entries(paramsObject).forEach(([name, value]) => {
-    if (value) params.set(name, value) // Atualiza/adiciona o valor do parâmetro
-    else params.delete(name) // Remove o parâmetro se o valor for `undefined`
+    if (value) params.set(name, value)
+    else params.delete(name)
   })
 
-  return params.toString() // Retorna a nova query string
+  return params.toString()
 }
 
 export { buildQueryString, createQueryStringFromParamsUrl }

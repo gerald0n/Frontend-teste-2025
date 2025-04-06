@@ -75,7 +75,7 @@ const HeroContent = styled.div`
 const HeroTitle = styled.h1`
   font-family: ${({ theme }) => theme.font.family.inter};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-size: 3.2rem; // 32px para mobile
+  font-size: 3.2rem;
   color: ${({ theme }) => theme.colors.white};
   text-align: left;
   max-width: 100%;

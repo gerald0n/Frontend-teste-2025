@@ -37,7 +37,6 @@ export const FavoriteCoursesContext = createContext<
 
 const getInitialState = (): InitialState => {
   if (typeof window === 'undefined') {
-    // Retorna o estado inicial vazio no ambiente do servidor
     return { favoriteCourses: [] }
   }
 
@@ -87,11 +86,8 @@ export function FavoriteCoursesProvider({ children }: { children: ReactNode }) {
     favoriteCoursesReducer,
     getInitialState(),
   )
-
-  // Persistência no localStorage
   useEffect(() => {
     if (typeof window === 'undefined') {
-      // Evita salvar no localStorage no ambiente do servidor
       return
     }
 

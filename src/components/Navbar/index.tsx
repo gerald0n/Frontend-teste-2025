@@ -11,9 +11,9 @@ import {
   NavbarContainer,
   NavbarContent,
   NavbarSection,
-  SearchText,
 } from './style'
 import { Drawer, DrawerHeader, DrawerTrigger } from '../Drawer'
+import { SearchInput } from '../SearchInput'
 import { Button } from '../shared/Button'
 import { SvgIcon } from '../shared/SvgIcon'
 
@@ -41,10 +41,7 @@ export function Navbar() {
             </div>
           </Drawer>
 
-          <IconWrapper className="search">
-            <SvgIcon.Search />
-            <SearchText>Busca</SearchText>
-          </IconWrapper>
+          <SearchInput />
         </NavbarSection>
 
         <LogoContainer>

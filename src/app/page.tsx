@@ -22,6 +22,7 @@ export default function Home() {
 
   const { data: coursesData, isLoading: isLoadingCourses } =
     useFetchData(getCourses)
+
   const { data: bannerData, isLoading: isLoadingBanner } =
     useFetchData(getBannerInfos)
 

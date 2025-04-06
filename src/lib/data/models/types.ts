@@ -9,6 +9,7 @@ import {
 
 export interface IQueriesParams {
   page?: number
+  search_string?: string
 }
 
 export interface IPagination {

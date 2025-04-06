@@ -85,6 +85,41 @@ const CourseDescription = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.medium};
 `
 
+const MiniCard = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  /* Removendo a borda */
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius.medium};
+  background-color: ${({ theme }) => theme.colors.white};
+`
+
+const MiniCardBanner = styled.div`
+  flex-shrink: 0;
+`
+
+const MiniCardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+`
+
+const MiniCardTitle = styled.h3`
+  font-size: ${({ theme }) => theme.font.sizes.medium};
+  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  color: ${({ theme }) => theme.colors.black.main};
+  margin: 0;
+`
+
+const MiniCardDescription = styled.p`
+  font-size: ${({ theme }) => theme.font.sizes.small};
+  color: ${({ theme }) => theme.colors.zinc[500]};
+  margin: 0;
+`
+
 export {
   Card,
   CardHeader,
@@ -96,4 +131,9 @@ export {
   BadgeText,
   CourseTitle,
   CourseDescription,
+  MiniCard,
+  MiniCardBanner,
+  MiniCardContent,
+  MiniCardTitle,
+  MiniCardDescription,
 }
