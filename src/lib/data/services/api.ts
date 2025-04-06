@@ -13,17 +13,17 @@ export async function getCourses(params?: IQueriesParams, limit = 8) {
     `/courses?${buildQueryString(params)}&per_page=${limit}`,
   )
 
-  return response.data
+  return response
 }
 
 export async function getCourseBySlug(slug: string) {
   const response = await customFetch<ICourse>(`/courses/${slug}`)
 
-  return response.data
+  return response
 }
 
 export async function getBannerInfos() {
   const response = await customFetch<IBannerInfosResponse>('/banners')
 
-  return response.data
+  return response
 }

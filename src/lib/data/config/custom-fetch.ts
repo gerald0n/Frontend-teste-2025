@@ -22,7 +22,6 @@ export async function customFetch<T>(path: string, reqOptions?: ReqOptions) {
     },
   }
 
-  // Parse body to JSON string
   if (reqOptions?.body) {
     options.body = JSON.stringify(reqOptions.body)
   }
@@ -49,7 +48,6 @@ export async function customFetch<T>(path: string, reqOptions?: ReqOptions) {
       )
     }
 
-    // Check if response type is a valid JSON
     const contentType = response.headers.get('Content-Type')
 
     if (contentType && contentType.includes('application/json')) {
@@ -57,15 +55,15 @@ export async function customFetch<T>(path: string, reqOptions?: ReqOptions) {
       return { data: responseData as T }
     }
 
-    return { data: null } // Default response
+    return { data: null }
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('CLIENT_FETCH_ERROR', { error: error as Error, url })
+    console.error('CLIENT_FETCH_ERROR', { error, url })
 
     if (error instanceof ApiError) {
-      return { error: error.message }
+      throw error
     }
 
-    return { error: 'Oops! Algo deu errado.' }
+    throw new Error('Oops! Algo deu errado.')
   }
 }

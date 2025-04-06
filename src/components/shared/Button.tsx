@@ -63,7 +63,7 @@ const ButtonStyled = styled.button<{
           border-radius: ${theme.border.radius.none};
 
           &:hover {
-            background-color: ${theme.colors.primary.muted};
+            background-color: transparent;
           }
         `
       case 'black':
@@ -91,10 +91,6 @@ const ButtonStyled = styled.button<{
         return css`
           height: 35px;
           padding-inline: 20px;
-
-          &:hover {
-            background-color: transparent;
-          }
         `
       case 'lg':
         return css`
