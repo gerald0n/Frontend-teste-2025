@@ -1,12 +1,9 @@
 'use client'
 
-import React, { useMemo } from 'react'
+import React from 'react'
 
-import { useFetchData } from '@/hooks/useFetchData'
 import { BannerInfos } from '@/lib/data/models/types'
-import { getBannerInfos } from '@/lib/data/services/api'
 
-import SkeletonBanner from './skeleton'
 import {
   HeroContainer,
   HeroContent,
@@ -17,19 +14,17 @@ import {
 } from './style'
 import { Button } from '../shared/Button'
 
-export function BannerSection() {
-  const { data, isLoading } = useFetchData(getBannerInfos)
+interface Props {
+  banner: BannerInfos
+}
 
-  const banner = useMemo(() => data?.banners[0] || ({} as BannerInfos), [data])
-
+export function BannerSection({ banner }: Props) {
   const scrollToCourses = () => {
     const section = document.getElementById('meus-cursos')
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
     }
   }
-
-  if (Object.keys(banner).length === 0 || isLoading) return <SkeletonBanner />
 
   return (
     <HeroContainer>

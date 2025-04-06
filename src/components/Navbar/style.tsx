@@ -27,12 +27,12 @@ const NavbarContent = styled.div`
   position: relative;
 `
 
-const NavbarSection = styled.div<{ justify?: string; gap?: string }>`
+const NavbarSection = styled.div<{ $justify?: string; $gap?: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: ${({ gap = '0' }) => `${gap}rem`};
-  justify-content: ${({ justify = 'flex-start' }) => justify};
+  gap: ${({ $gap = '0' }) => `${$gap}rem`};
+  justify-content: ${({ $justify = 'flex-start' }) => $justify};
 `
 
 const IconWrapper = styled.div`

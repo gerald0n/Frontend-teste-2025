@@ -52,7 +52,7 @@ const ButtonStyled = styled.button<{
           border-radius: ${theme.border.radius.small};
 
           &:hover {
-            background-color: ${theme.colors.primary.muted};
+            background-color: ${theme.colors.primary.neutral};
           }
         `
       case 'ghost':

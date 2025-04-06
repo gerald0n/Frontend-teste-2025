@@ -231,4 +231,57 @@ export const SvgIcon = {
       />
     </svg>
   ),
+  X: ({ width = 20, height = 20, color = '#000000' }: SvgProps) => (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line
+        x1="18"
+        y1="6"
+        x2="6"
+        y2="18"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <line
+        x1="6"
+        y1="6"
+        x2="18"
+        y2="18"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  CheckCircle: ({ width = 16, height = 16, color = '#323334' }: SvgProps) => (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        stroke={color}
+        strokeWidth="1"
+        fill="none"
+      />
+      <path
+        d="M8 12.5L11 15.5L16 9.5"
+        stroke={color}
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
 }

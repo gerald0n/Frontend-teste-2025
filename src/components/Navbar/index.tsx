@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Link from 'next/link'
+
 import {
   ButtonContainer,
   IconWrapper,
@@ -16,7 +18,7 @@ export function Navbar() {
   return (
     <NavbarContainer>
       <NavbarContent>
-        <NavbarSection gap="3">
+        <NavbarSection $gap="3">
           <IconWrapper className="menu">
             <SvgIcon.Menu />
           </IconWrapper>
@@ -27,10 +29,12 @@ export function Navbar() {
         </NavbarSection>
 
         <LogoContainer>
-          <SvgIcon.Logo />
+          <Link href="/">
+            <SvgIcon.Logo />
+          </Link>
         </LogoContainer>
 
-        <NavbarSection justify="flex-end">
+        <NavbarSection $justify="flex-end">
           <ButtonContainer className="register">
             <Button variant="ghost" size="md" leftIcon={<SvgIcon.Register />}>
               Cadastre-se

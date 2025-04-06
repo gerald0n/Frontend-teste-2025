@@ -27,6 +27,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   isFavoriteCourse: boolean
   bannerUrl: string | null
   toggleCourse: () => void
+  navigateToCourse?: () => void
 }
 
 export function CourseCard({
@@ -36,6 +37,7 @@ export function CourseCard({
   isFavoriteCourse,
   bannerUrl,
   toggleCourse,
+  navigateToCourse,
 }: Props) {
   const courseBadge = isOnline ? 'ONLINE' : 'OFFLINE'
   const courseBadgeIcon = isOnline ? '/fire.svg' : '/lock.svg'
@@ -64,7 +66,7 @@ export function CourseCard({
       </CardContent>
 
       <CardFooter>
-        <Button variant="primary" size="md-full">
+        <Button variant="primary" size="md-full" onClick={navigateToCourse}>
           Acessar
         </Button>
       </CardFooter>

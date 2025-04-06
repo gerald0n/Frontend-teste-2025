@@ -1,0 +1,7 @@
+export { Modal } from '@/context/modal'
+export { useModal } from '@/hooks/useModal'
+export { ModalTrigger } from './ModalTrigger'
+export { ModalContent } from './ModalContent'
+export { ModalHeader } from './ModalHeader'
+export { ModalFooter } from './ModalFooter'
+export { ModalClose } from './ModalClose'
