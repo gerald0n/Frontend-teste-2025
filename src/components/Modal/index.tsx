@@ -1,5 +1,4 @@
-export { Modal } from '@/context/modal'
-export { useModal } from '@/hooks/useModal'
+export { Modal } from './Modal'
 export { ModalTrigger } from './ModalTrigger'
 export { ModalContent } from './ModalContent'
 export { ModalHeader } from './ModalHeader'

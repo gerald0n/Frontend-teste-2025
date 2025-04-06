@@ -9,22 +9,20 @@ import {
   ReactNode,
 } from 'react'
 
-import { useModal } from '@/hooks/useModal'
-
 type ModalTriggerProps =
   | {
       asChild: true
       children: ReactElement
+      onOpen: () => void
     }
   | {
       asChild?: false
       children: ReactNode
+      onOpen: () => void
     }
 
 export const ModalTrigger = forwardRef<HTMLDivElement, ModalTriggerProps>(
-  ({ children, asChild = false }, ref) => {
-    const { open } = useModal()
-
+  ({ children, asChild = false, onOpen }, ref) => {
     if (asChild && isValidElement(children)) {
       const childProps = children.props as {
         onClick?: (...args: any[]) => void
@@ -35,7 +33,7 @@ export const ModalTrigger = forwardRef<HTMLDivElement, ModalTriggerProps>(
       } = {
         onClick: (...args) => {
           childProps.onClick?.(...args)
-          open()
+          onOpen()
         },
       }
 
@@ -43,7 +41,7 @@ export const ModalTrigger = forwardRef<HTMLDivElement, ModalTriggerProps>(
     }
 
     return (
-      <div ref={ref} onClick={open}>
+      <div ref={ref} onClick={onOpen}>
         {children}
       </div>
     )

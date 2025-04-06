@@ -2,23 +2,20 @@
 
 import { styled } from 'styled-components'
 
-import { useModal } from '@/hooks/useModal'
-
 import { SvgIcon } from '../shared/SvgIcon'
 
 type Props = {
   asIcon?: boolean
+  onClose: () => void
 }
 
-export function ModalClose({ asIcon = false }: Props) {
-  const { close } = useModal()
-
+export function ModalClose({ asIcon = false, onClose }: Props) {
   return asIcon ? (
-    <HeaderButton type="button" onClick={close}>
+    <HeaderButton type="button" onClick={onClose}>
       <SvgIcon.X width={16} height={16} />
     </HeaderButton>
   ) : (
-    <FooterButton type="button" onClick={close}>
+    <FooterButton type="button" onClick={onClose}>
       Fechar
     </FooterButton>
   )

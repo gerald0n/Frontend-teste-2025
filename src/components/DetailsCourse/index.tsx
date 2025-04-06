@@ -43,12 +43,11 @@ export function DetailsCourse({ slug }: Props) {
   const pathname = usePathname()
   const [courseUrl, setCourseUrl] = useState('')
   const [copied, setCopied] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const fetchCourse = useCallback(() => getCourseBySlug(slug), [slug])
   const { data: course, isLoading, error } = useFetchData(fetchCourse)
-
   const { isFavorite, toggleCourse } = useFavoriteCourses()
-
   const isFavorited = course ? isFavorite(course.id) : false
 
   useEffect(() => {
@@ -78,51 +77,8 @@ export function DetailsCourse({ slug }: Props) {
   }
 
   if (isLoading) return <Skeleton />
-
   if (error) notFound()
-
   if (!course) return null
-
-  const renderShareModal = () => (
-    <Modal>
-      <ModalTrigger asChild>
-        <FloatButton>
-          <SvgIcon.Share />
-        </FloatButton>
-      </ModalTrigger>
-
-      <ModalContent size="md">
-        <ModalHeader>
-          Compartilhar curso
-          <ModalClose asIcon />
-        </ModalHeader>
-
-        <LinkInputWrapper>
-          <LinkInput>
-            <input type="text" value={courseUrl} readOnly />
-            <LinkCopyButton
-              onClick={handleCopyLink}
-              style={{
-                cursor: copied ? 'default' : 'pointer',
-                backgroundColor: copied ? '#F0F0F0' : '#FFFFFF',
-              }}
-            >
-              {copied ? <SvgIcon.CheckCircle /> : <SvgIcon.Copy />}
-            </LinkCopyButton>
-          </LinkInput>
-
-          <WhatsappShareButton onClick={handleShareOnWhatsapp}>
-            <SvgIcon.WhatsApp width={20} height={20} color="#FFFFFF" />
-            Compartilhar via Whatsapp
-          </WhatsappShareButton>
-        </LinkInputWrapper>
-
-        <ModalFooter>
-          <ModalClose />
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  )
 
   return (
     <PageContainer>
@@ -142,7 +98,44 @@ export function DetailsCourse({ slug }: Props) {
           <Content>
             <Title>{course.title}</Title>
             <Description>{course.long_description}</Description>
-            {renderShareModal()}
+
+            <ModalTrigger asChild onOpen={() => setIsModalOpen(true)}>
+              <FloatButton>
+                <SvgIcon.Share />
+              </FloatButton>
+            </ModalTrigger>
+
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+              <ModalContent size="md">
+                <ModalHeader onClose={() => setIsModalOpen(false)}>
+                  Compartilhar curso
+                </ModalHeader>
+
+                <LinkInputWrapper>
+                  <LinkInput>
+                    <input type="text" value={courseUrl} readOnly />
+                    <LinkCopyButton
+                      onClick={handleCopyLink}
+                      style={{
+                        cursor: copied ? 'default' : 'pointer',
+                        backgroundColor: copied ? '#F0F0F0' : '#FFFFFF',
+                      }}
+                    >
+                      {copied ? <SvgIcon.CheckCircle /> : <SvgIcon.Copy />}
+                    </LinkCopyButton>
+                  </LinkInput>
+
+                  <WhatsappShareButton onClick={handleShareOnWhatsapp}>
+                    <SvgIcon.WhatsApp width={20} height={20} color="#FFFFFF" />
+                    Compartilhar via Whatsapp
+                  </WhatsappShareButton>
+                </LinkInputWrapper>
+
+                <ModalFooter>
+                  <ModalClose onClose={() => setIsModalOpen(false)} />
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </Content>
         </StyledContainer>
       </PageContentWrapper>
