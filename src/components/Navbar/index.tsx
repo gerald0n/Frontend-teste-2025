@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 
 import Link from 'next/link'
 
@@ -11,17 +13,34 @@ import {
   NavbarSection,
   SearchText,
 } from './style'
+import { Drawer, DrawerHeader, DrawerTrigger } from '../Drawer'
 import { Button } from '../shared/Button'
 import { SvgIcon } from '../shared/SvgIcon'
 
 export function Navbar() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
   return (
     <NavbarContainer>
       <NavbarContent>
         <NavbarSection $gap="3">
-          <IconWrapper className="menu">
-            <SvgIcon.Menu />
-          </IconWrapper>
+          <DrawerTrigger asChild onOpen={() => setIsDrawerOpen(true)}>
+            <IconWrapper className="menu">
+              <SvgIcon.Menu />
+            </IconWrapper>
+          </DrawerTrigger>
+
+          <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+            <DrawerHeader onClose={() => setIsDrawerOpen(false)}>
+              <SvgIcon.Logo />
+            </DrawerHeader>
+            <div style={{ paddingBlock: '16px' }}>
+              <Button variant="ghost" size="md" leftIcon={<SvgIcon.Register />}>
+                Cadastre-se
+              </Button>
+            </div>
+          </Drawer>
+
           <IconWrapper className="search">
             <SvgIcon.Search />
             <SearchText>Busca</SearchText>
