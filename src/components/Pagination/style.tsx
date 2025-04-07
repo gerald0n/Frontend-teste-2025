@@ -55,4 +55,38 @@ const NavButton = styled.button`
   }
 `
 
-export { Wrapper, PageList, PageButton, NavButton }
+const SkeletonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+
+  ${({ theme }) => theme.media.lg} {
+    justify-content: end;
+  }
+`
+
+const SkeletonPageButton = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+`
+
+const SkeletonNavButton = styled.div`
+  width: 80px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+`
+
+export {
+  Wrapper,
+  PageList,
+  PageButton,
+  NavButton,
+  SkeletonWrapper,
+  SkeletonPageButton,
+  SkeletonNavButton,
+}

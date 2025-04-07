@@ -8,6 +8,7 @@ import {
   SkeletonCards,
   SkeletonCard,
 } from './styles'
+import { PaginationSkeleton } from '../Pagination/skeleton'
 import { PageContainer } from '../shared/PageContainer'
 import { PageContentWrapper } from '../shared/PageContentWrapper'
 
@@ -21,7 +22,6 @@ export function SkeletonCoursesList() {
       <SkeletonBanner />
 
       <PageContentWrapper>
-        
         <SkeletonSectionTitle />
 
         <SkeletonCards>
@@ -31,6 +31,18 @@ export function SkeletonCoursesList() {
             </SkeletonCard>
           ))}
         </SkeletonCards>
+
+        <SkeletonSectionTitle />
+
+        <SkeletonCards>
+          {Array.from({ length: 4 }).map((_, index) => (
+            <SkeletonCard key={index}>
+              <></>
+            </SkeletonCard>
+          ))}
+        </SkeletonCards>
+
+        <PaginationSkeleton />
       </PageContentWrapper>
     </PageContainer>
   )
