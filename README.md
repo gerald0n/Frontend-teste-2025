@@ -34,3 +34,7 @@
 
 1. Faça um fork deste repositório.
 2. Após finalizar, crie uma pull request no repositório original com sua solução.
+
+## Link do deploy
+
+https://evob-iota.vercel.app/
