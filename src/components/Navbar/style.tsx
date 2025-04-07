@@ -39,6 +39,7 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   &.menu {
     ${({ theme }) => theme.media.lg} {

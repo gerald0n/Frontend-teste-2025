@@ -102,7 +102,7 @@ export default function Home() {
     )
   }
 
-  if (isLoadingCourses || isLoadingBanner) {
+  if (isLoadingCourses || isLoadingBanner || !bannerData) {
     return <SkeletonCoursesList />
   }
 

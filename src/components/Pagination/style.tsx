@@ -19,19 +19,19 @@ const PageList = styled.div`
   gap: 8px;
 `
 
-const PageButton = styled.button<{ isActive?: boolean }>`
+const PageButton = styled.button<{ $isActive?: boolean }>`
   width: 36px;
   height: 36px;
   border-radius: 6px;
-  border: 1px solid ${({ isActive }) => (isActive ? '#000' : '#ccc')};
-  background-color: ${({ isActive }) => (isActive ? '#000' : '#fff')};
-  color: ${({ isActive }) => (isActive ? '#fff' : '#333')};
+  border: 1px solid ${({ $isActive }) => ($isActive ? '#000' : '#ccc')};
+  background-color: ${({ $isActive }) => ($isActive ? '#000' : '#fff')};
+  color: ${({ $isActive }) => ($isActive ? '#fff' : '#333')};
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ isActive }) => (isActive ? '#000' : '#f3f3f3')};
+    background-color: ${({ $isActive }) => ($isActive ? '#000' : '#f3f3f3')};
   }
 `
 

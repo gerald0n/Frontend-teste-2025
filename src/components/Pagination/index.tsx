@@ -27,7 +27,7 @@ export function Pagination({
       pages.push(
         <PageButton
           key={i}
-          isActive={i === meta?.current_page}
+          $isActive={i === meta?.current_page}
           onClick={() => onPageChange(i)}
         >
           {i}

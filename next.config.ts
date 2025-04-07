@@ -5,7 +5,12 @@ const nextConfig: NextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['evob-dev-upload.s3.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'evob-dev-upload.s3.amazonaws.com',
+      },
+    ],
   },
 }
 
