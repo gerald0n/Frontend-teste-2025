@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
 import type { Metadata } from 'next'
 import { Inter, Quattrocento } from 'next/font/google'
@@ -42,7 +42,9 @@ export default function RootLayout({
             flexDirection: 'column',
           }}
         >
-          <Navbar />
+          <Suspense fallback={null}>
+            <Navbar />
+          </Suspense>
           <main style={{ flex: 1, minHeight: 'calc(100vh - 215px)' }}>
             {children}
           </main>

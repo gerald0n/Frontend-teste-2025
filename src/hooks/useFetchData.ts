@@ -22,6 +22,7 @@ export function useFetchData<T>(
     error: null,
   })
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedParams = useMemo(() => params, [JSON.stringify(params)])
 
   useEffect(() => {
